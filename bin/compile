@@ -25,8 +25,8 @@ echo "tar"
 # untar the binary to the directory we want
 tar -C vendor/cmake -xvf cmake.tar.gz
 
-debug=`ls $build_dir/vendor/cmake`
-echo $debug
-
-echo $PATH
+# Update the PATH
+status "Building cmake runtime environment"
+mkdir -p $build_dir/.profile.d
+echo "export PATH=\"\$HOME/vendor/cmake/bin:\$PATH\";" > $build_dir/.profile.d/cmake.sh
 
