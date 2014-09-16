@@ -6,16 +6,25 @@ echo "-----> Installing cmake"
 # change to the the BUILD_DIR ($1)
 cd $1
 
+echo "change to build dir"
+echo $1
+
+echo "curl"
+
 # download
 curl https://s3.amazonaws.com/mergeguard/cmake.tar.gz -s -O
 
+echo "mkdir"
+
 # make dir
-mkdir -p /tmp/codon/vendor
+mkdir -p /app/vendor/cmake
+
+echo "tar"
 
 # untar the binary to the directory we want
-tar -C /tmp/codon/vendor -xvf cmake.tar.gz
+tar -C /app/vendor/cmake -xvf cmake.tar.gz
 
-debug=`ls /tmp/codon/vendor/bin`
+debug=`ls /app/vendor/cmake`
 echo $debug
 
 echo $PATH
